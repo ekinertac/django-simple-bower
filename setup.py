@@ -24,7 +24,7 @@ setup(
     author_email='ekinertac@gmail.com',
     url='https://github.com/ekinertac/django-simple-bower',
     license='WTFPL',
-    packages=['simplebower'],
+    packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
     install_requires=[
