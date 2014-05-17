@@ -2,43 +2,43 @@
 
 Install bower from npm:
 
-```
-npm install -g bower
+```shell
+$ npm install -g bower
 ```
 
 Install django-simple-bower with pip
 
-```
-pip install django-simple-bower
+```shell
+$ pip install django-simple-bower
 ```
 
 Add django-simple-bower to INSTALLED_APPS in your settings:
 
-```
+```python
 'simplebower',
 ```
 
 Set path to bower components (use absolute path):
 
-```
+```python
 BOWER_COMPONENTS_ROOT = '/PROJECT_ROOT/static/components'
 ```
 
 Set url to bower
 
-```
+```python
 BOWER_COMPONENTS_URL = '/static/components'
 ```
 
 Load bower in your template
 
-```
+```html
 {% load bower %}
 ```
 
 Finally call bower components
 
-```
+```html
 {% bower 'css' bootstrap %}
 
 {% bower 'js' jquery %}
@@ -46,7 +46,7 @@ Finally call bower components
 ```
 
 HTML Output
-```
+```html
 <link rel="stylesheet" href="/static/components/bootstrap/dist/css/bootstrap.css">
 
 <script src="/static/components/jquery/dist/jquery.js"></script>
