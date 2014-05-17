@@ -18,6 +18,8 @@ Add django-simple-bower to INSTALLED_APPS in your settings:
 'simplebower',
 ```
 
+
+## Usage
 Set path to bower components (use absolute path):
 
 ```python
@@ -45,14 +47,12 @@ Finally call bower components
 {% bower 'js' bootstrap %}
 ```
 
-HTML Output
+### HTML Output
 ```html
 <link rel="stylesheet" href="/static/components/bootstrap/dist/css/bootstrap.css">
 
 <script src="/static/components/jquery/dist/jquery.js"></script>
 <script src="/static/components/bootstrap/dist/js/bootstrap.js"></script>
 ```
-
-License:
 
 [![WTFPL](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-4.png)](http://www.wtfpl.net)
