@@ -17,7 +17,7 @@ class Bower(Tag):
         Argument('name', required=True),
     )
 
-    bower_root = getattr(settings, 'BOWER_COMPONENTS_ROOT')
+    bower_root = getattr(settings, 'BOWER_COMPONENTS_ROOT')[0]
     bower_url = getattr(settings, 'BOWER_COMPONENTS_URL')
     js_template = '<script src="%s"></script>'
     css_template = '<link rel="stylesheet" href="%s">'
@@ -33,14 +33,9 @@ class Bower(Tag):
         Retrieve main file paths from components bower.json file
         """
         bower_json = open(os.path.join(self.bower_root, name, 'bower.json'), 'r').read()
+
         main_js_obj = json.loads(bower_json)['main']
         return self._make_singular_to_list(main_js_obj)
-
-    def normalize_file_paths(self, path):
-        """
-        Removes the './' in file paths
-        """
-        return path[2:]
 
     def get_parsed_html(self, path):
         """
@@ -59,7 +54,7 @@ class Bower(Tag):
         response = ''
 
         for f in files:
-            paths.append(os.path.join(self.bower_url, name, self.normalize_file_paths(f)))
+            paths.append(os.path.join(self.bower_url, name, f))
 
         for path in paths:
             if media_type == 'js' and '.js' in path:
